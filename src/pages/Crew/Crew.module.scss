@@ -1,0 +1,268 @@
+$page-centering-padding: 5rem;
+
+@mixin description-styling {
+  font-family: var(--ff-barlow);
+  font-size: var(--fs-page-description-content);
+  line-height: var(--line-ht-page-description-content);
+  color: var(--fc-content-light-blue);
+}
+
+.main-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../../public/assets/crew/background-crew-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // gap: 22vw;
+  color: var(--clr-primary-white);
+  //   align-items: flex-end;
+  .error-msg {
+    font-family: var(--ff-barlow);
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 2rem;
+  }
+}
+
+.wrapper {
+  width: 80%;
+  margin-top: var(--desktop-page-container-margin-top);
+  height: calc(100% - var(--desktop-page-container-margin-top));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  transition: all 200ms ease-in-out;
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.page-left {
+  // height: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .page-heading {
+    font-family: var(--ff-barlow-cond);
+    font-size: var(--fs-page-heading);
+    font-weight: var(--fw-page-heading);
+    letter-spacing: var(--letter-sp-page-heading);
+    line-height: var(--line-ht-page-heading);
+
+    // font-family: var(--ff-barlow-cond);
+    color: var(--clr-primary-white);
+    align-self: flex-start;
+    span {
+      color: #ffffff40;
+    }
+  }
+}
+
+.crew-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+
+  span {
+    font-family: var(--ff-bellefair);
+    // color: rgba(255, 255, 255, 0.4);
+    color: #979797;
+    font-weight: 300;
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-family: var(--ff-bellefair);
+    font-weight: 400;
+    font-size: 3rem;
+    word-spacing: 1;
+  }
+
+  p {
+    max-width: 444px;
+    margin-top: 1rem;
+    @include description-styling();
+  }
+}
+
+.nav-btns {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 10vh;
+
+  button {
+    cursor: pointer;
+    user-select: none;
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ffffff40;
+    transition: background-color 100ms ease-in-out, transform 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      background-color: #979797;
+    }
+
+    &.active {
+      background-color: var(--clr-primary-white);
+      transform: scale(1.1);
+    }
+  }
+}
+
+.page-right {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  // justify-content: space-evenly;
+}
+
+.crew-img {
+  user-select: none;
+  align-self: center;
+  // height: 445px;
+  // aspect-ratio: 1/1;
+}
+
+.travel-info-heading {
+  font-family: var(--ff-barlow-cond);
+  color: var(--fc-content-light-blue);
+  font-size: 0.9rem;
+  letter-spacing: var(--letter-sp-nav-items);
+}
+
+.travel-telemetrics {
+  font-family: var(--ff-bellefair);
+  font-size: 1.75rem;
+}
+
+// tablet
+
+@media (max-width: calc(64em - 1px)) {
+  .main-container {
+    background-image: url("../../../public/assets/crew/background-crew-tablet.jpg");
+  }
+
+  .wrapper {
+    margin-top: calc(var(--nav-height));
+    height: calc(100vh - var(--nav-height));
+    width: 100%;
+    padding: 0 2.5rem;
+    gap: 2rem;
+    // padding-top: 0;
+
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-left {
+    align-items: center;
+    padding-top: 2.5rem;
+
+    gap: 2rem;
+    .page-heading {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 3.36px;
+    }
+
+    .crew-details-wrapper {
+      width: 100%;
+      align-items: center;
+      p {
+        max-width: unset;
+        width: 100%;
+      }
+    }
+
+    .nav-btns {
+      margin: 0;
+    }
+  }
+
+  .page-right {
+    flex-grow: 1;
+    .crew-img {
+      max-width: 90%;
+    }
+  }
+}
+
+// mobile
+@media screen and (max-width: 520px) {
+  .main-container {
+    background-image: url("../../../public/assets/crew/background-crew-mobile.jpg");
+  }
+
+  .wrapper {
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+    overflow: auto;
+    margin-top: var(--mobile-secondary-page-container-margin-top);
+    padding: 2rem;
+    .page-left {
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-top: 0;
+      .page-heading {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+      }
+
+      .crew-details-wrapper {
+        gap: 1rem;
+        span {
+          font-size: 1rem;
+        }
+        h1 {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 15px;
+          text-align: center;
+          margin: 0;
+        }
+      }
+
+      .nav-btns {
+        gap: 1rem;
+        button {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+
+    .page-right {
+      flex-direction: column;
+      flex-grow: 0;
+      justify-content: flex-end;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      picture {
+        display: flex;
+        justify-content: center;
+      }
+      .crew-img {
+        max-width: 60%;
+      }
+    }
+  }
+}
